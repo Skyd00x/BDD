@@ -1,7 +1,6 @@
 SELECT COUNT(*) AS TotalReservations
 FROM Reservations
-WHERE DateDebut >= '20240101' AND DateFin <= '20240501';
+WHERE DateDebut >= '2024-01-01' AND DateFin <= '2024-05-01';
 
 SELECT COUNT(DISTINCT NumeroEtudiant) AS NombreUtilisateurs
-FROM Reservations
-WHERE IdMatériel = 4;
+FROM Reservations;

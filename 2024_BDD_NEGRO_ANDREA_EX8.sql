@@ -3,8 +3,8 @@
 CREATE TABLE Disponibilite(
     id_disponibilite INT AUTO_INCREMENT,
     id_materiel INT,
-    date_debut DATE,
-    date_fin DATE,
+    date_debut VARCHAR(20),
+    date_fin VARCHAR(20),
     PRIMARY KEY(id_disponibilite),
     FOREIGN KEY(id_materiel) REFERENCES Materiel(IdMatériel)
 );
@@ -35,8 +35,7 @@ BEGIN
         SIGNAL SQLSTATE '45000'
         SET MESSAGE_TEXT = 'Le matériel n''est pas disponible pour cette période.';
     END IF;
-END
-//
+END//
 
 -- Vérification de disponibilité avant la création d'une réservation
 CREATE TRIGGER before_reservation_update
@@ -54,9 +53,9 @@ BEGIN
         SIGNAL SQLSTATE '45000'
         SET MESSAGE_TEXT = 'Le matériel n''est pas disponible pour cette période.';
     END IF;
-END
-//
-DELIMITER;
+END//
+
+DELIMITER ;
 
 -- Différents tests
 INSERT INTO
@@ -79,7 +78,7 @@ Reservations (
     IdMatériel
 )
 VALUES
-    ('20240204', '20240206', 1, 123456, 1);
+    ('2024-02-04', '2024-02-06', 1, 123456, 1);
 
 INSERT INTO
 Reservations (
@@ -90,4 +89,4 @@ Reservations (
     IdMatériel
 )
 VALUES
-    ('20240204', '20240206', 2, 123456, 6);
+    ('2024-02-04', '2024-02-06', 2, 123456, 6);

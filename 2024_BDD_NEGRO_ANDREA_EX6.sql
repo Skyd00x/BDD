@@ -1,6 +1,6 @@
 SELECT * FROM Reservations;
 
 DELETE FROM Reservations
-WHERE IdReservations = 6;
+WHERE IdReservations = 3;
 
 SELECT * FROM Reservations;
